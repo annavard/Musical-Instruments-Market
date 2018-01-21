@@ -1,0 +1,37 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://xmlns.jcp.org/jsf/html"
+     class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Music Market</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><h:form style="display: inline-block; padding-top: 15px"><h:commandLink styleClass="logout-btn" style="color:#9d9d9d" actionListener="#{LoginBean.makeLogOut}" action="/index.html" rendered="#{IndexBean.currentUser!=null}">
+                    <h:outputText value="Logout"/></h:commandLink></h:form></li>
+                <li><h:link value="Login" outcome="login" rendered="#{IndexBean.currentUser==null}"/></li>
+                <li><h:link value="Register" outcome="register" rendered="#{IndexBean.currentUser==null}" /></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <span style="color: #ff9900;"><h:outputText style=" margin-right: 15px; font-weight: bold; font-size: 18px" value = "#{IndexBean.currentUser.name}" /></span>
+                    <span style="color: #ffffff">Now in your cart </span>
+                    <h:form style="margin-top: 13px;margin-left: 10px; display: inline-block"><h:link outcome="shopping_cart" value="#{IndexBean.quantity}"
+                                                                                                      style="display: inline; color: whitesmoke; font-size: 28px" />
+                    <span style="color: whitesmoke; margin-left: 5px"> items</span>
+                    </h:form>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>

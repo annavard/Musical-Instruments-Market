@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="head.xhtml"/>
+<body>
+
+<ui:include src="header.xhtml"/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3 sidebar">
+            <ui:include src="left_panel.xhtml"/>
+        </div>
+        <div class="col-xs-9">
+            <f:view>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <ui:include src="home.xhtml"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <h:form>
+                            <h:outputText class = "text-danger" style="color: #ff0000; font-size: 16px" value="#{LoginBean.message}" rendered="#{LoginBean.message!=null}"/>
+
+                            <div class="form-group" style="margin-top: 20px">
+                                <h:outputLabel for="username">Username:</h:outputLabel>
+                                <h:inputText id="username" value="#{LoginBean.email}" styleClass="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="password">Password:</h:outputLabel>
+                                <h:inputSecret id="password" value="#{LoginBean.password}" styleClass="form-control"/>
+                            </div>
+                            <p>
+                                <h:commandButton value="Login" action="#{LoginBean.tryLogin}"
+                                                 styleClass="btn btn-default" style="margin-right: 10px;"/>
+                                <h:link value="Register" outcome="register" styleClass="btn btn-default"/>
+                            </p>
+                        </h:form>
+                    </div>
+
+                </div>
+
+            </f:view>
+        </div>
+    </div>
+</div>
+
+<ui:include src="footer.xhtml"/>
+
+</body>
+
+</html>
+
+
+
+
